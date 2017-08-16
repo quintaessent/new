@@ -1,0 +1,108 @@
+extends layout
+
+block content
+	#about.standart-block
+		.container
+			.text-header
+				.line-header
+					h3.header-block About
+			.row
+				.col-md-offset-1.col-md-3.col-sm-3.col-xs-12.position-img
+					.img-profile
+				.about-me-text
+					.col-md-7.col-sm-9
+						h3.large-text
+							| Suspendisse pharetra aliquam diam, et cursus erat mattis sed,nunc bibendum mauris a mi faucibus, sed rutrum urna.
+						p
+							| Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis. Do nec pulvinar erat quis odio laoreet convallis. Morbi sed leo in justo rhoncus tempor. Nam et dolor nec ante tristique consequat et vel eros. Nunc bibendum mauris a mi faucibus, sed rutrum urna gravida. Nunc vitae nulla dignissim, tincidunt leo at, gravida arcu.Do nec pulvinar erat quis odio laoreet convallis. Morbi sed leo in justo rhoncus tempor. Nam et dolor nec ante tristique consequat et vel eros. Nunc bibendum mauris a mi faucibus, sed rutrum urna gravida. Nunc vitae nulla dignissim, tincidunt leo at, gravida arcu. Fusce eget sapien dignissim, suscipit eros vitae, blandit ligula.
+						a(href='album.html')
+							span.black-button view album
+						.social-links
+							a(href='index.html')
+								span.fa.ion-social-facebook
+							a(href='index.html')
+								span.fa.ion-social-twitter
+							a(href='index.html')
+								span.fa.ion-social-linkedin
+							a(href='index.html')
+								span.fa.ion-social-googleplus
+	section.counter
+		.container.content
+			.row
+				.col-sm-3.timer-section
+					h3.timer 1500
+					h5.timer-text Hours Of Work
+				.col-sm-3.timer-section-2
+					h3.timer 45
+					h5.timer-text Cups of Coffee
+				.col-sm-3.timer-section-3
+					h3.timer 178
+					h5.timer-text Project Done
+				.col-sm-3.timer-section-4
+					h3.timer 32
+					h5.timer-text Clients Worked
+	section#services.standart-block
+		.container
+			.text-header
+				.line-header
+					h3.header-block Services
+				.row
+					h4.col-md-6.col-sm-8
+						| Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis.
+			.row
+				.pricing-blocks
+					.col-md-4.col-sm-4.services-1
+						h5 Photography
+						p
+							| Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis. Do nec pulvinar erat quis odio laoreet convallis.
+						span Pricing: 250-500$
+					.col-md-4.col-sm-4.services-2
+						h5 Graphic Design
+						p
+							| Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis. Do nec pulvinar erat quis odio laoreet convallis.
+						span Pricing: 250 - 700$
+					.col-md-4.col-sm-4.services-3
+						h5 UI / UX Design
+						p
+							| Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis. Do nec pulvinar erat quis odio laoreet convallis.
+						span Pricing: 250 - 750$
+	#clients.owl-carousel
+		.client-item
+			img(src='assets/images/clients/company.png', alt='')
+		.client-item
+			img(src='assets/images/clients/company-2.png', alt='')
+		.client-item
+			img(src='assets/images/clients/company-3.png', alt='')
+		.client-item
+			img(src='assets/images/clients/company-4.png', alt='')
+	section#testimonials.standart-block
+		.container
+			.text-header
+				.line-header
+					h3.header-block Testimonials
+				.row
+					h4.col-md-6.col-sm-8
+						| Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis.
+			#tst-carousel.owl-carousel
+				.tst-item
+					.tst-img
+						img.img-circle(src='assets/images/testimonials/testimonials-1.jpg', alt='')
+					p
+						| “Aenean vestibulum viverra ex ac convallis.Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis. Do nec pulvinar erat quis odio laoreet convallis.”
+					span Donald Neal
+				.tst-item
+					.tst-img
+						img.img-circle(src='assets/images/testimonials/testimonials-2.jpg', alt='')
+					p
+						| “Aenean vestibulum viverra ex ac convallis.Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis. Do nec pulvinar erat quis odio laoreet convallis.”
+					span John Rice
+				.tst-item
+					.tst-img
+						img.img-circle(src='assets/images/testimonials/testimonials-3.jpg', alt='')
+					p
+						| “Aenean vestibulum viverra ex ac convallis.Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis. Do nec pulvinar erat quis odio laoreet convallis.”
+					span Robert Lloyd
+	
+
+
+

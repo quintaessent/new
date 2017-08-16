@@ -1,0 +1,59 @@
+#preloader
+	.loader
+		img(src='assets/images/logo.svg', alt='logo')
+header#header-page.ytp-video-bg
+	#video(data-property="{videoURL:'https://www.youtube.com/watch?v=xFOisW4U154',containment:'body',autoPlay:true, mute:true, startAt:0, opacity:1,showControls:false,optimizeDisplay:true, mobileFallbackImage:'assets/images/background.jpg'}")
+	nav.navigation.nav-down
+		.home-menu
+			a.nav-logo(href='index.html')
+				img.logo(src='assets/images/logo.svg', alt='logo')
+			.home-menu-text
+				a.page-scroll(href='#about') about
+				a.page-scroll(href='#services') services
+				a.page-scroll(href='#testimonials') testimonials
+		.indicator-text
+			span.text-menu menu
+			span.text-close.hide close
+		.hamburger
+			span.color-menu
+			span.color-menu
+			span.color-menu
+	nav.navigation_menu
+		.sub-menu
+			a.page-scroll(href='#header-page')
+				| Home
+				p Briefly about the main
+			a(href='album.html')
+				| Albums
+				p Here are my best works
+			a(href='blog-home.html')
+				| Blog
+				p Read My Posts
+			a(href='contact.html')
+				| Contact
+				p Get In Touch
+			.social-links
+				a(href='#')
+					span.fa.ion-social-facebook
+				a(href='#')
+					span.fa.ion-social-twitter
+				a(href='#')
+					span.fa.ion-social-linkedin
+				a(href='#')
+					span.fa.ion-social-googleplus
+	.container
+		.row
+			.intro-text
+				h1.left-text
+					| Vedea 
+					span Studio
+				.header-block-txt
+					h4 Sed nibh neque, imperdiet ac magna mattis, fringilla vulputate erat
+					p
+						| Temporibus, corporis provident quidem exercitationem
+						| iure
+						br
+						| nostrum aspernatur repudiandae.
+					a.page-scroll(href='#services')
+						span.border-button Services
+	#icon-scroll-down.scrollDown
