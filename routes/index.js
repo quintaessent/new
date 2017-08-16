@@ -18,8 +18,5 @@ router.get('/blog/:id?', function(req, res, next) {
 		res.render('blog/notfound');
 	}
 });
-router.get('/blog/:id', function(req, res) {
-	console.log(req.params.id);
-	res.render('blog/2');
-});
+
 module.exports = router;
