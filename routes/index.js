@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 router.get('/blog', function(req, res) {
 	res.render('blog/blog');
 });
-router.get('/blog/:id?', function(req, res, next) {
+router.get('/blog/:id?', function(req, res) {
 	var id = req.params.id;
 	if (id === "1"){
 		res.render('blog/1');
