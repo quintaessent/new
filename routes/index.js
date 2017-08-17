@@ -9,8 +9,8 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 router.get('/blog', function(req, res) {
-	res.render('blog/blog', {
-		posts: response
+	posts.find({}).then(function(response){
+		res.render('blog/blog', {posts: response});
 	});
 });
 router.get('/blog/:id', function(req, res) {
