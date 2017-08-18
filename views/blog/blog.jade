@@ -73,11 +73,11 @@ html(lang='zxx')
 							each post in posts
 								img.img-responsive(src='/assets/images/blog-img/'+post.image, alt='')
 								h4.blog-post-title
-									a(href='single-post.html')= post.header
+									a(href='/blog/'+post._id)= post.header
 								p.date-post= post.data
 								p= post.shortText
 								.read-more
-									a(href='single-post.html')
+									a(href='/blog/'+post._id)
 										| Read More
 										i.fa.ion-ios-arrow-thin-right
 						// Pager

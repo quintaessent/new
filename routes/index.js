@@ -15,8 +15,9 @@ router.get('/blog', function(req, res) {
 });
 router.get('/blog/:id', function(req, res) {
 	var id = req.params.id;
-	console.log(id);
-	res.render('blog/'+id);
+	posts.findOne({_id:req.params.id}).then(function(response){
+		res.render('blog/'+id, {posts: response});
+	});
 });
 
 module.exports = router;
