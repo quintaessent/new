@@ -70,40 +70,16 @@ html(lang='zxx')
 					.col-md-8
 						// First Blog Post
 						.posts
-							img.img-responsive(src='/assets/images/blog-img/01.jpg', alt='')
-							h4.blog-post-title
-								a(href='single-post.html') 15 Things To Know About Travel.
-							p.date-post July 15, 2017 at 12:10 PM
-							p
-								| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
-							.read-more
-								a(href='single-post.html')
-									| Read More
-									i.fa.ion-ios-arrow-thin-right
-						// Second Blog Post
-						.posts
-							img.img-responsive(src='/assets/images/blog-img/02.jpg', alt='')
-							h4.blog-post-title
-								a(href='single-post.html') 15 Things To Know About Travel.
-							p.date-post July 15, 2017 at 12:10 PM
-							p
-								| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
-							.read-more
-								a(href='single-post.html')
-									| Read More
-									i.fa.ion-ios-arrow-thin-right
-						// Third Blog Post
-						.posts
-							img.img-responsive(src='/assets/images/blog-img/01.jpg', alt='')
-							h4.blog-post-title
-								a(href='single-post.html') 15 Things To Know About Travel.
-							p.date-post July 15, 2017 at 12:10 PM
-							p
-								| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
-							.read-more
-								a(href='single-post.html')
-									| Read More
-									i.fa.ion-ios-arrow-thin-right
+							each post in posts
+								img.img-responsive(src='/assets/images/blog-img/'+post.image, alt='')
+								h4.blog-post-title
+									a(href='single-post.html')= post.header
+								p.date-post= post.data
+								p= post.shortText
+								.read-more
+									a(href='single-post.html')
+										| Read More
+										i.fa.ion-ios-arrow-thin-right
 						// Pager
 						ul.pager
 							li.previous
