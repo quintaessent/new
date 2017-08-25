@@ -10,13 +10,14 @@ router.get('/', function(req, res) {
 });
 router.get('/blog', function(req, res) {
 	posts.find({}).then(function(response){
-		res.render('blog/blog', {posts: response});
+		res.render('blog', {posts: response});
 	});
 });
 router.get('/blog/:id', function(req, res) {
 	var id = req.params.id;
-	posts.findOne({_id:req.params.id}).then(function(response){
-		res.render('blog/'+id, {posts: response});
+	console.log(req)
+	posts.findOne({slug:req.params.id}).then(function(response){
+		res.render('post', {post: response});
 	});
 });
 
