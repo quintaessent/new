@@ -38,8 +38,9 @@ header(class=header_class id=header_id)
 					span.fa.ion-social-linkedin
 				a(href='#')
 					span.fa.ion-social-googleplus
-	.album-text
-		div
-			h2=(text)
+	if !mainPage
+		.album-text
+			div
+				h2=(text)
 
 	block intro
