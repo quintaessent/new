@@ -1,0 +1,49 @@
+extends layout
+
+block content
+	section#contact.page-block
+		.container
+			.text-header
+				.row
+					h4.col-md-6
+						| Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis.
+			.contact_inform
+				.container
+					.row.inform
+						.col-md-4
+							span ADDRESS:
+							p Street, City, Country
+						.col-md-4
+							span PHONE:
+							p +(123) 456 789 
+						.col-md-4
+							span E-MAIL:
+							p your-email@mail.com
+			.row
+				// block form
+				.col-md-8.col-md-offset-2
+					.well
+						form#contactForm.shake(data-toggle='validator')
+							.form-group
+								// ENTER MANE
+								input#name.form-control(type='text', placeholder='Enter name', required='', data-error='Please enter your name')
+								.help-block.with-errors
+							.form-group
+								// ENTER EMAIL
+								input#email.form-control(type='email', placeholder='Enter email', required='', data-error='Please enter your email address')
+								.help-block.with-errors
+							.form-group
+								// ENTER MESSAGE
+								textarea#message.form-control(rows='5', placeholder='Enter your message', required='', data-error='Please enter your message')
+								.help-block.with-errors
+							// button form submit
+							.submit
+								.content-button
+									button#form-submit.black-button SUBMIT
+								#msgSubmit.h5.h5.text-danger.hidden
+	#map.container-fluid
+	// JavaScripts
+	script(src='assets/js/googlemap.js')
+	script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCDa77CMiGw5QRvFTl8oeV1qBet4XQe6fs&callback=initMap')
+	script(src='assets/js/form-scripts.js')
+

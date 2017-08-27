@@ -1,5 +1,28 @@
 extends layout
-
+block video
+	#video(data-property="{videoURL:'https://www.youtube.com/watch?v=xFOisW4U154',containment:'body',autoPlay:true, mute:true, startAt:0, opacity:1,showControls:false,optimizeDisplay:true, mobileFallbackImage:'assets/images/background.jpg'}")
+block intro
+	.container
+	.row
+		.intro-text
+			h1.left-text
+				| Vedea 
+				span Studio
+			.header-block-txt
+				h4 Sed nibh neque, imperdiet ac magna mattis, fringilla vulputate erat
+				p
+					| Temporibus, corporis provident quidem exercitationem
+					| iure
+					br
+					| nostrum aspernatur repudiandae.
+				a.page-scroll(href='#services')
+					span.border-button Services
+	#icon-scroll-down.scrollDown
+block scrollmenu
+	.home-menu-text
+					a.page-scroll(href='#about') about
+					a.page-scroll(href='#services') services
+					a.page-scroll(href='#testimonials') testimonials
 block content
 	#about.standart-block
 		.container
