@@ -9,17 +9,17 @@ router.get('/', function(req, res) {
   res.render('index', { header_class: 'ytp-video-bg', header_id: 'header-page'});
 });
 router.get('/contacts', function(req, res) {
-	res.render('contacts', {header_class: 'contact-page', text: 'Contact'});
+	res.render('contacts', {header_class: 'contact-page', text: 'Contact', title: 'contacts'});
 });
 router.get('/album', function(req, res) {
-	res.render('album', {header_class: 'albums-page', text: 'Albums'});
+	res.render('album', {header_class: 'albums-page', text: 'Albums',title: 'album'});
 });
 router.get('/project', function(req, res) {
 	res.render('project', {header_class: 'projekt-page', text: 'Albums'});
 });
 router.get('/blog', function(req, res) {
 	posts.find({}).then(function(response){
-		res.render('blog', {posts: response, header_class: 'blog-home-page', text: 'Blog'});
+		res.render('blog', {posts: response, header_class: 'blog-home-page', text: 'Blog', title: 'blog'});
 	});
 });
 router.get('/blog/:id', function(req, res) {
