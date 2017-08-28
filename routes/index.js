@@ -22,6 +22,7 @@ router.get('/contacts', function(req, res) {
 });
 router.get('/album', function(req, res) {
 	album.find({}).then(function(response){
+		console.log(response);
 		res.render('album', {
 			album: response,
 			header_class: 'albums-page', 
@@ -31,12 +32,18 @@ router.get('/album', function(req, res) {
 	});
 	
 });
-router.get('/project', function(req, res) {
-	res.render('project', {
-		header_class: 'projekt-page', 
-		text: 'Albums'
+router.get('/album/:id', function(req, res){
+	var id = req.params.id;
+	album.findOne({slug:req.params.id}).then(function(response){
+		console.log(response);
+		res.render('project', {
+			album: response,
+			header_class: 'projekt-page', 
+			text: 'Albums'
+		});
 	});
 });
+
 router.get('/blog', function(req, res) {
 	posts.find({}).then(function(response){
 		res.render('blog', {

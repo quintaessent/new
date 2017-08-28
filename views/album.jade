@@ -12,9 +12,9 @@ block content
 				each item in album
 					.album-item
 						.album-img
-							a(href='project.html')
+							a(href='/album/'+item.slug)
 								div
 									span.item-view.animated.fadeInDown view
-									img(src='assets/images/albums/album-item/'+item.image, alt='')
+									img(src='/assets/images/albums/album-item/'+item.image, alt='')
 						h5= item.header
 						p= item.shortText
