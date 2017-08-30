@@ -21,7 +21,7 @@ router.get('/projects', function(req, res) {
 			projects: response,
 			header_class: 'albums-page', 
 			text: 'Albums',
-			title: 'album'
+			title: 'projects'
 		});
 	});
 	
@@ -48,6 +48,7 @@ router.get('/contacts', function(req, res) {
 
 router.get('/blog', function(req, res) {
 	posts.find({}).then(function(response){
+		console.log(response);
 		res.render('blog', {
 			posts: response,
 			 header_class: 'blog-home-page', 

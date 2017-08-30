@@ -9,10 +9,10 @@ block content
 						| Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis.
 			// Images For Albums
 			#album-carousel.owl-carousel
-				each item in projects
-					.album-item
+				.album-item
+					each item in projects
 						.album-img
-							a(href='/album/'+item.slug)
+							a(href='/projects/'+item.slug)
 								div
 									span.item-view.animated.fadeInDown view
 									img(src='/assets/images/albums/album-item/'+item.image, alt='')
