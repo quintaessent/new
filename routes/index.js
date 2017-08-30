@@ -3,7 +3,7 @@ var router = express.Router();
 
 const db = require('monk')('localhost/portfolioblog');
 const posts = db.get('posts');
-const album = db.get('album');
+const projects = db.get('projects');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -13,18 +13,12 @@ router.get('/', function(req, res) {
 	  mainPage: true
 	});
 });
-router.get('/contacts', function(req, res) {
-	res.render('contacts', {
-		header_class: 'contact-page',
-		 text: 'Contact', 
-		 title: 'contacts'
-		});
-});
-router.get('/album', function(req, res) {
-	album.find({}).then(function(response){
+
+router.get('/projects', function(req, res) {
+	projects.find({}).then(function(response){
 		console.log(response);
 		res.render('album', {
-			album: response,
+			projects: response,
 			header_class: 'albums-page', 
 			text: 'Albums',
 			title: 'album'
@@ -32,9 +26,9 @@ router.get('/album', function(req, res) {
 	});
 	
 });
-router.get('/album/:id', function(req, res){
+router.get('/projects/:id', function(req, res){
 	var id = req.params.id;
-	album.findOne({slug:req.params.id}).then(function(response){
+	projects.findOne({slug:req.params.id}).then(function(response){
 		console.log(response);
 		res.render('project', {
 			album: response,
@@ -43,6 +37,14 @@ router.get('/album/:id', function(req, res){
 		});
 	});
 });
+router.get('/contacts', function(req, res) {
+	res.render('contacts', {
+		header_class: 'contact-page',
+		 text: 'Contact', 
+		 title: 'contacts'
+		});
+});
+
 
 router.get('/blog', function(req, res) {
 	posts.find({}).then(function(response){
