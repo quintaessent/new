@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
 router.get('/projects', function(req, res) {
 	projects.find({}).then(function(response){
 		console.log(response);
-		res.render('album', {
+		res.render('projects', {
 			projects: response,
 			header_class: 'albums-page', 
 			text: 'Albums',
@@ -31,7 +31,7 @@ router.get('/projects/:id', function(req, res){
 	projects.findOne({slug:req.params.id}).then(function(response){
 		console.log(response);
 		res.render('project', {
-			album: response,
+			projects: response,
 			header_class: 'projekt-page', 
 			text: 'Albums'
 		});
