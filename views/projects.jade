@@ -7,14 +7,15 @@ block content
 				.row
 					h4.col-md-6
 						| Suspendisse pharetra aliquam diam, et cursus erat mattis sed. Aenean vestibulum viverra ex ac convallis.
-			// Images For Albums
-			#album-carousel.owl-carousel
-				.album-item
+
+
+				#album-carousel.owl-carousel
 					each item in projects
-						.album-img
-							a(href='/projects/'+item.slug)
-								div
-									span.item-view.animated.fadeInDown view
-									img(src='/assets/images/albums/album-item/'+item.image, alt='')
-						h5= item.header
-						p= item.description
+						.album-item
+							.album-img
+								a(href='/projects/'+item.slug)
+									div
+										span.item-view.animated.fadeInDown view
+										img(src='/assets/images/albums/album-item/'+item.image, alt='')
+								h5= item.header
+								p= item.description

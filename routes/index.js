@@ -28,7 +28,7 @@ router.get('/projects', function(req, res) {
 });
 router.get('/projects/:id', function(req, res){
 	var id = req.params.id;
-	projects.findOne({slug:req.params.id}).then(function(response){
+	projects.find({slug:req.params.id},{}).then(function(response){
 		console.log(response);
 		res.render('project', {
 			projects: response,
