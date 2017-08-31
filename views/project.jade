@@ -11,25 +11,22 @@ block content
 		.container
 			.row
 				.flex-images
-					// item 1
-					.item-gallery(data-w='579', data-h='386')
-						a.image-link.hover-img.effect(data-toggle='modal', data-target='.modal1', href='#image-modal1')
-							.hover-image
-							img.image-holder-image(src='/assets/images/project-img/mountains/'+album.photography[0], alt='work-1')
-							.image-holder-description
-							.holder-left
-							i.ion-arrow-resize(aria-hidden='true')
-					// Modal-Box
-					#image-modal1.modal-box.mfp-hide
-						img(src='/assets/images/project-img/mountains/'+album.photographyBig[0], alt='work-1')
-						.modal-box-content
-							h4 Project title
-							p
-								| Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
-					// End Modal-Box
-					
-					
+					each item in projects.project
+						// item 1
+						.item-gallery(data-w=item.data-w, data-h=item.data-h)
+							a.image-link.hover-img.effect(data-toggle='modal', data-target='.modal1', href='#image-modal1')
+								.hover-image
+								img.image-holder-image(src='/assets/images/project-img/mountains/'+item.image, alt='work-1')
+								.image-holder-description
+								.holder-left
+								i.ion-arrow-resize(aria-hidden='true')
+						// Modal-Box
+						#image-modal1.modal-box.mfp-hide
+							img(src='/assets/images/project-img/mountains/'+item.imageBig, alt='work-1')
+							.modal-box-content
+								h4 Project title
+								p
+									| Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
 				// /.flex-images
 				.project-btn
 					a(href='album.html') Back to albums
-

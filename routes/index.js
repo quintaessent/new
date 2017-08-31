@@ -28,7 +28,7 @@ router.get('/projects', function(req, res) {
 });
 router.get('/projects/:id', function(req, res){
 	var id = req.params.id;
-	projects.find({slug:req.params.id},{}).then(function(response){
+	projects.findOne({slug:req.params.id},{}).then(function(response){
 		console.log(response);
 		res.render('project', {
 			projects: response,
@@ -60,6 +60,7 @@ router.get('/blog', function(req, res) {
 router.get('/blog/:id', function(req, res) {
 	var id = req.params.id;
 	posts.findOne({slug:req.params.id}).then(function(response){
+		console.log(response);
 		res.render('post', {
 			post: response, 
 			header_class: 'blog-home-page', 
