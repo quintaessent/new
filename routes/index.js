@@ -5,6 +5,13 @@ const db = require('monk')('localhost/portfolioblog');
 const posts = db.get('posts');
 const projects = db.get('projects');
 
+
+router.use(function(req, res,next){
+	seo.find({}).then(function(seo){
+		const seo = seo;
+	})
+	next()
+})
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { 
