@@ -9,12 +9,15 @@ const seo = db.get('seo');
 router.use(function(req, res,next){
 	seo.find({}).then(function(seo){
 		req.seo = seo;
-	})
-	next()
+		next()
+	});
+
 })
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { 
+
+  res.render('index', {
+	  title: req.seo.indexTitle,
 	  header_class: 'ytp-video-bg', 
 	  header_id: 'header-page',
 	  mainPage: true
