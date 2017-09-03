@@ -7,7 +7,7 @@ const projects = db.get('projects');
 const seo = db.get('seo');
 
 router.use(function(req, res,next){
-	seo.find({}).then(function(seo){
+	seo.findOne({}).then(function(seo){
 		req.seo = seo;
 		next()
 	});
@@ -15,12 +15,12 @@ router.use(function(req, res,next){
 })
 /* GET home page. */
 router.get('/', function(req, res) {
-
+	console.log(req.seo);
   res.render('index', {
-	  title: req.seo.indexTitle,
-	  header_class: 'ytp-video-bg', 
-	  header_id: 'header-page',
-	  mainPage: true
+	title: req.seo.indexTitle,
+	header_class: 'ytp-video-bg', 
+	header_id: 'header-page',
+	mainPage: true
 	});
 });
 
@@ -28,10 +28,11 @@ router.get('/projects', function(req, res) {
 	projects.find({}).then(function(response){
 		console.log(response);
 		res.render('projects', {
+			title: req.seo.projectsTitle,
 			projects: response,
 			header_class: 'albums-page', 
 			text: 'Albums',
-			title: 'projects'
+
 		});
 	});
 	
@@ -41,10 +42,11 @@ router.get('/projects/:id', function(req, res){
 	projects.findOne({slug:req.params.id},{}).then(function(response){
 		console.log(response);
 		res.render('project', {
+			title: req.seo.projectsTitle,
 			projects: response,
 			header_class: 'projekt-page', 
 			text: 'Albums',
-			title: 'projects'
+
 		});
 	});
 });
@@ -52,7 +54,7 @@ router.get('/contacts', function(req, res) {
 	res.render('contacts', {
 		header_class: 'contact-page',
 		 text: 'Contact', 
-		 title: 'contacts'
+		 title: req.seo.contactsTitle,
 		});
 });
 
@@ -64,7 +66,7 @@ router.get('/blog', function(req, res) {
 			posts: response,
 			 header_class: 'blog-home-page', 
 			 text: 'Blog', 
-			 title: 'blog'
+			 title: req.seo.blogTitle,
 		});
 	});
 });
@@ -75,7 +77,8 @@ router.get('/blog/:id', function(req, res) {
 		res.render('post', {
 			post: response, 
 			header_class: 'blog-home-page', 
-			text: 'Single post'
+			text: 'Single post',
+			title: req.seo.blogTitle,
 		});
 	});
 });
