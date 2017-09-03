@@ -4,7 +4,7 @@ var router = express.Router();
 const db = require('monk')('localhost/portfolioblog');
 const posts = db.get('posts');
 const projects = db.get('projects');
-
+const seo = db.get('seo');
 
 router.use(function(req, res,next){
 	seo.find({}).then(function(seo){
