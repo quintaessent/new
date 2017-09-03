@@ -33,7 +33,8 @@ router.get('/projects/:id', function(req, res){
 		res.render('project', {
 			projects: response,
 			header_class: 'projekt-page', 
-			text: 'Albums'
+			text: 'Albums',
+			title: 'projects'
 		});
 	});
 });
