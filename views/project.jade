@@ -1,6 +1,7 @@
 extends layout
 
 block content
+	// Projekt name
 	section#album.page-block
 		.container
 			.text-header
@@ -12,21 +13,24 @@ block content
 			.row
 				.flex-images
 					each item in projects.project
-						// item 1
-						.item-gallery(data-w=item.data-w, data-h=item.data-h)
-							a.image-link.hover-img.effect(data-toggle='modal', data-target='.modal1', href='#image-modal1')
+						.item-gallery(data-w=item.dataW, data-h=item.dataH)
+							a.image-link.hover-img.effect(data-toggle='modal', data-target='.modal1', href='#'+item.modal)
 								.hover-image
 								img.image-holder-image(src='/assets/images/project-img/mountains/'+item.image, alt='work-1')
 								.image-holder-description
 								.holder-left
 								i.ion-arrow-resize(aria-hidden='true')
 						// Modal-Box
-						#image-modal1.modal-box.mfp-hide
+						div(id=""+item.modal class="modal-box mfp-hide")
 							img(src='/assets/images/project-img/mountains/'+item.imageBig, alt='work-1')
 							.modal-box-content
 								h4 Project title
 								p
 									| Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
+						// End Modal-Box
+
 				// /.flex-images
 				.project-btn
 					a(href='album.html') Back to albums
+			// end row
+		// /.container
