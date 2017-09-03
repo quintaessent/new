@@ -8,7 +8,7 @@ const projects = db.get('projects');
 
 router.use(function(req, res,next){
 	seo.find({}).then(function(seo){
-		const seo = seo;
+		req.seo = seo;
 	})
 	next()
 })
