@@ -42,7 +42,7 @@ router.get('/projects/:id', function(req, res){
 	projects.findOne({slug:req.params.id},{}).then(function(response){
 		console.log(response);
 		res.render('project', {
-			title: req.seo.projectsTitle,
+			title: "Проект",
 			projects: response,
 			header_class: 'projekt-page', 
 			text: 'Albums',
@@ -78,7 +78,7 @@ router.get('/blog/:id', function(req, res) {
 			post: response, 
 			header_class: 'blog-home-page', 
 			text: 'Single post',
-			title: req.seo.blogTitle,
+			title: "Пост",
 		});
 	});
 });
