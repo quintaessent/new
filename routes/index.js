@@ -6,9 +6,7 @@ const posts = db.get('posts');
 const projects = db.get('projects');
 const seo = db.get('seo');
 const	postsOnPage = 3,
-		currentPage = 1,
-		skip = currentPage * postsOnPage,
-		limit = postsOnPage
+
 
 
 
@@ -69,6 +67,9 @@ router.get('/contacts', function(req, res) {
 
 
 router.get('/blog/', function(req, res) {
+	currentPage = req.query.page,
+	skip = currentPage * postsOnPage,
+	limit = postsOnPage
 	posts.find({}).then(function(response){
 		res.render('blog', {
 			posts: response,
