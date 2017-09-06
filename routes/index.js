@@ -67,9 +67,18 @@ router.get('/contacts', function(req, res) {
 
 
 router.get('/blog/', function(req, res) {
-	currentPage = req.query.page,
-	skip = currentPage * postsOnPage,
-	limit = postsOnPage
+	let currentPage = req.query.page || 1
+    let	skip = currentPage * postsOnPage
+	let limit = postsOnPage
+	posts.find({}, {limit, skip}).then(function(response){
+		res.render('blog'), {
+			posts: response,
+			header_class: 'blog-home-page', 
+			text: 'Blog', 
+			title: req.seo.blogTitle,
+			descr: req.seo.BlogDescr,
+		}
+	})
 	posts.find({}).then(function(response){
 		res.render('blog', {
 			posts: response,
