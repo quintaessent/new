@@ -5,6 +5,20 @@ const db = require('monk')('localhost/portfolioblog');
 const posts = db.get('posts');
 const projects = db.get('projects');
 const seo = db.get('seo');
+const	postsOnPage = 3,
+		currentPage = 1,
+		skip = currentPage * postsOnPage,
+		limit = postsOnPage
+
+
+const OnePage = posts.find({},{limit})
+
+const otherPages = posts.find({},{skip, limit})
+
+
+if (typeof req.query.page !== 'undefined') {
+	currentPage = +req.query.page;
+}
 
 router.use(function(req, res,next){
 	seo.findOne({}).then(function(seo){
@@ -63,8 +77,7 @@ router.get('/contacts', function(req, res) {
 
 
 router.get('/blog', function(req, res) {
-	posts.find({},{limit:3}).then(function(response){
-		console.log(req.query)
+	posts.find({}).then(function(response){
 		res.render('blog', {
 			posts: response,
 			 header_class: 'blog-home-page', 
