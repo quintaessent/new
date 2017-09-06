@@ -11,14 +11,6 @@ const	postsOnPage = 3,
 		limit = postsOnPage
 
 
-const OnePage = posts.find({},{limit})
-
-const otherPages = posts.find({},{skip, limit})
-
-
-if (typeof req.query.page !== 'undefined') {
-	currentPage = +req.query.page;
-}
 
 router.use(function(req, res,next){
 	seo.findOne({}).then(function(seo){
@@ -76,7 +68,7 @@ router.get('/contacts', function(req, res) {
 });
 
 
-router.get('/blog', function(req, res) {
+router.get('/blog/', function(req, res) {
 	posts.find({}).then(function(response){
 		res.render('blog', {
 			posts: response,
@@ -87,6 +79,8 @@ router.get('/blog', function(req, res) {
 		});
 	});
 });
+
+
 router.get('/blog/:id', function(req, res) {
 	var id = req.params.id;
 	posts.findOne({slug:req.params.id}).then(function(response){
