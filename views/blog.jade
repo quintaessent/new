@@ -13,15 +13,16 @@ block content
 					// First Blog Post
 					.posts
 						each post in posts
-							img.img-responsive(src='/assets/images/blog-img/'+post.image, alt='')
-							h4.blog-post-title
-								a(href='/blog/'+post.slug)= post.header
-							p.date-post= post.data
-							p= post.shortText
-							.read-more
-								a(href='/blog/'+post.slug)
-									| Read More
-									i.fa.ion-ios-arrow-thin-right
+							.posts
+								img.img-responsive(src='/assets/images/blog-img/'+post.image, alt='')
+								h4.blog-post-title
+									a(href='/blog/'+post.slug)= post.header
+								p.date-post= post.data
+								p= post.shortText
+								.read-more
+									a(href='/blog/'+post.slug)
+										| Read More
+										i.fa.ion-ios-arrow-thin-right
 					// Pager
 					ul.pager
 						li.previous

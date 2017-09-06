@@ -18,6 +18,7 @@ router.get('/', function(req, res) {
 	console.log(req.seo);
   res.render('index', {
 	title: req.seo.indexTitle,
+	descr: req.seo.indexDescr,
 	header_class: 'ytp-video-bg', 
 	header_id: 'header-page',
 	mainPage: true
@@ -29,6 +30,7 @@ router.get('/projects', function(req, res) {
 		console.log(response);
 		res.render('projects', {
 			title: req.seo.projectsTitle,
+			descr: req.seo.projectsDescr,
 			projects: response,
 			header_class: 'albums-page', 
 			text: 'Albums',
@@ -42,10 +44,10 @@ router.get('/projects/:id', function(req, res){
 	projects.findOne({slug:req.params.id},{}).then(function(response){
 		console.log(response);
 		res.render('project', {
-			title: "Проект",
+			title: response.header,
 			projects: response,
 			header_class: 'projekt-page', 
-			text: 'Albums',
+			text: 'Albums'
 
 		});
 	});
@@ -55,18 +57,20 @@ router.get('/contacts', function(req, res) {
 		header_class: 'contact-page',
 		 text: 'Contact', 
 		 title: req.seo.contactsTitle,
+		 descr: req.seo.contactsDescr
 		});
 });
 
 
 router.get('/blog', function(req, res) {
-	posts.find({}).then(function(response){
-		console.log(response);
+	posts.find({},{limit:3}).then(function(response){
+		console.log(req.query)
 		res.render('blog', {
 			posts: response,
 			 header_class: 'blog-home-page', 
 			 text: 'Blog', 
 			 title: req.seo.blogTitle,
+			 descr: req.seo.BlogDescr,
 		});
 	});
 });
@@ -78,7 +82,7 @@ router.get('/blog/:id', function(req, res) {
 			post: response, 
 			header_class: 'blog-home-page', 
 			text: 'Single post',
-			title: "Пост",
+			title: response.header,
 		});
 	});
 });
