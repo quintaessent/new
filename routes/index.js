@@ -62,18 +62,19 @@ router.get('/blog', function(req, res) {
   let currentPage = req.query.page || 1;
   let skip = (currentPage - 1) * postsOnPage;
   let limit = postsOnPage;
-	let totalLists;
+  let totalLists;
   posts.find({}, { sort: { _id: -1 }, limit, skip }).then(function(foundPosts) {
     posts.count({}).then(function(postsCount) {
-      totalLists = postsCount / postsOnPage;
-      Math.ceil(totalLists);
-   		 res.render('blog', {
-				totalLists: totalLists,
-      posts: foundPosts,
-      header_class: 'blog-home-page',
-      text: 'Blog',
-      title: req.seo.blogTitle,
-      descr: req.seo.BlogDescr
+      totalPages = Math.ceil(postsCount / postsOnPage);
+      res.json({
+        currentPage: currentPage,
+        totalLists: totalLists,
+        posts: foundPosts,
+        header_class: 'blog-home-page',
+        text: 'Blog',
+        title: req.seo.blogTitle,
+        descr: req.seo.BlogDescr
+      });
     });
   });
 });
